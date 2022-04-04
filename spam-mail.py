@@ -19,14 +19,20 @@ def portada():
  /        \ |    |  /    |    \/    Y    \ /_____/ /    Y    \/    |    \   |    |___ 
 /_______  / |____|  \____|__  /\____|__  /         \____|__  /\____|__  /___|_______ \        
         """)
- 
+
     print(f"{v}Herramienta desarrollada por nicolas.$ | Discord:nicolas.$#4882")
-    print(f"{w}1.Ir a la herramienta")
-    print(f"{w}2.Salir")
+ 
+
 
 
 portada()
 correo = str(input(f"{v}Digite el correo a hacer el spam: "))
+def opc():
+    
+    print(f"{w}1.Ir a la herramienta")
+    print(f"{w}2.Salir")
+
+opc()
 url2 = "https://api.slb.com/api/auth/password/forgot?emailAddress=" + str("{}".format(correo))+"&emailTemplateId={0DA48535-7880-4670-AC80-8164330B907F}"
 url1 = 'https://api.slb.com/api/auth/register'
 def register():
@@ -37,6 +43,9 @@ def register():
         print(f"{v}Correo creado con exito")
     else:
         print(f"{re}Correo creado sin exito")
+        sleep(3)
+        portada()
+        opc()
 def enviof():
     i=1
     while i <= 5:
@@ -53,12 +62,13 @@ def opciones():
  op_in = input(str("Digite que quiere hacer: "))
 
  if op_in == "1":
-    necesario_crear_correo = input(str(f"{v}Digite SI, si ya habia utilizado esta herramienta en el correo {correo}, si no digite NO: "))
+    necesario_crear_correo = input(str(f"{v}Digite SI, si ya habia utilizado esta herramienta en el correo {correo}, sino, digite NO: "))
     if necesario_crear_correo == "SI": 
       print(f"{c}El correo a hacer spam es {correo}")
       enviof()
       os.system("cls")
       portada()
+      opc()
       opciones()
     elif necesario_crear_correo == "NO":
      print(f"{c}El correo a hacer spam es {correo}")
@@ -66,6 +76,7 @@ def opciones():
      enviof()
      os.system("cls")
      portada()
+     opc()
      opciones()
  elif op_in == "2":
     print(f"{re}Saliendo...")
@@ -76,17 +87,7 @@ def opciones():
     sleep(3)
     os.system("cls")
     portada()
+    opc()
     opciones()
 
 opciones()
-
-
-
-        
-
-
-
-
-
-
-
